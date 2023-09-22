@@ -65,29 +65,36 @@ for ($i = 1; $i <= 50; $i++) {
 /*========================
         task 3
 ===========================*/ 
-// Function to calculate the nth Fibonacci number
-function fibonacci($n) {
+
+function fibonacci($n)
+{
     if ($n <= 1) {
         return $n;
     } else {
-        return fibonacci($n - 1) + fibonacci($n - 2);
+        return (fibonacci($n - 1) + fibonacci($n - 2));
     }
 }
 
-$count = 0; // Counter to keep track of generated Fibonacci numbers
+$first = 0;
+$second = 1;
+$count = 0;
 
-for ($i = 0; $count < 100; $i++) {
-    $fib = fibonacci($i);
-    
-    // Check if the Fibonacci number is greater than 100
-    if ($fib > 100) {
-        break; // Exit the loop if it's greater than 100
+while ($count < 10) {
+    if ($count == 0) {
+        echo "$first ";
+    } elseif ($count == 1) {
+        echo "$second ";
+    } else {
+        $next = $first + $second;
+        if ($next > 100) {
+            break;
+        }
+        echo "$next ";
+        $first = $second;
+        $second = $next;
     }
-    
-    echo $fib . " "; // Print the Fibonacci number
     $count++;
 }
-
 
 /*========================
         task 4
